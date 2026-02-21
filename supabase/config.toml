@@ -1,0 +1,4 @@
+project_id = "biypntqldhziomxkntla"
+
+[functions.rasoi-ai]
+verify_jwt = false
