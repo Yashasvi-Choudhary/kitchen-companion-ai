@@ -6,74 +6,86 @@
 
 @layer base {
   :root {
-    --background: 34 38% 94%;
-    --foreground: 0 0% 18%;
+    --background: 40 33% 96%;
+    --foreground: 0 0% 22%;
 
-    --card: 34 38% 97%;
-    --card-foreground: 0 0% 18%;
+    --card: 40 33% 98%;
+    --card-foreground: 0 0% 22%;
 
-    --popover: 34 38% 97%;
-    --popover-foreground: 0 0% 18%;
+    --popover: 40 33% 98%;
+    --popover-foreground: 0 0% 22%;
 
-    --primary: 130 15% 49%;
-    --primary-foreground: 34 38% 97%;
+    --primary: 255 60% 82%;
+    --primary-foreground: 255 60% 15%;
 
-    --secondary: 16 45% 59%;
-    --secondary-foreground: 34 38% 97%;
+    --secondary: 25 100% 87%;
+    --secondary-foreground: 25 60% 20%;
 
-    --muted: 34 20% 88%;
+    --muted: 40 20% 90%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 16 45% 59%;
-    --accent-foreground: 34 38% 97%;
+    --accent: 80 60% 35%;
+    --accent-foreground: 80 60% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 34 20% 85%;
-    --input: 34 20% 85%;
-    --ring: 130 15% 49%;
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 255 60% 82%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 34 38% 94%;
-    --sidebar-foreground: 0 0% 18%;
-    --sidebar-primary: 130 15% 49%;
-    --sidebar-primary-foreground: 34 38% 97%;
-    --sidebar-accent: 16 45% 59%;
-    --sidebar-accent-foreground: 34 38% 97%;
-    --sidebar-border: 34 20% 85%;
-    --sidebar-ring: 130 15% 49%;
+    --sidebar-background: 40 33% 96%;
+    --sidebar-foreground: 0 0% 22%;
+    --sidebar-primary: 255 60% 82%;
+    --sidebar-primary-foreground: 255 60% 15%;
+    --sidebar-accent: 80 60% 35%;
+    --sidebar-accent-foreground: 80 60% 98%;
+    --sidebar-border: 40 20% 88%;
+    --sidebar-ring: 255 60% 82%;
 
-    --sage: 130 15% 49%;
-    --sage-light: 130 15% 92%;
-    --terracotta: 16 45% 59%;
-    --terracotta-light: 16 45% 90%;
-    --cream: 34 38% 94%;
-    --cream-dark: 34 20% 88%;
-    --charcoal: 0 0% 18%;
+    --lavender: 255 60% 82%;
+    --lavender-light: 255 60% 94%;
+    --peach: 25 100% 87%;
+    --peach-light: 25 100% 95%;
+    --olive: 80 60% 35%;
+    --olive-light: 80 40% 90%;
+    --beige: 40 33% 96%;
+    --beige-dark: 40 20% 90%;
+    --charcoal: 0 0% 22%;
   }
 
   .dark {
-    --background: 0 0% 12%;
-    --foreground: 34 38% 94%;
-    --card: 0 0% 15%;
-    --card-foreground: 34 38% 94%;
-    --popover: 0 0% 15%;
-    --popover-foreground: 34 38% 94%;
-    --primary: 130 15% 49%;
-    --primary-foreground: 34 38% 97%;
-    --secondary: 16 45% 59%;
-    --secondary-foreground: 34 38% 97%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 34 20% 70%;
-    --accent: 16 45% 59%;
-    --accent-foreground: 34 38% 97%;
+    --background: 240 10% 10%;
+    --foreground: 40 33% 92%;
+    --card: 240 10% 13%;
+    --card-foreground: 40 33% 92%;
+    --popover: 240 10% 13%;
+    --popover-foreground: 40 33% 92%;
+    --primary: 255 50% 72%;
+    --primary-foreground: 255 90% 98%;
+    --secondary: 25 80% 70%;
+    --secondary-foreground: 25 90% 98%;
+    --muted: 240 10% 18%;
+    --muted-foreground: 40 15% 65%;
+    --accent: 80 50% 45%;
+    --accent-foreground: 80 60% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 130 15% 49%;
+    --border: 240 10% 20%;
+    --input: 240 10% 20%;
+    --ring: 255 50% 72%;
+
+    --lavender: 255 50% 72%;
+    --lavender-light: 255 40% 25%;
+    --peach: 25 80% 70%;
+    --peach-light: 25 50% 20%;
+    --olive: 80 50% 45%;
+    --olive-light: 80 30% 20%;
+    --beige: 240 10% 10%;
+    --beige-dark: 240 10% 18%;
+    --charcoal: 40 33% 92%;
   }
 }
 
@@ -93,7 +105,7 @@
 
 @layer components {
   .card-kitchen {
-    @apply bg-card rounded-2xl shadow-kitchen p-6 border border-border/50 transition-all duration-300 hover:shadow-kitchen-lg hover:-translate-y-1;
+    @apply bg-card rounded-2xl shadow-kitchen p-5 md:p-6 border border-border/50 transition-all duration-300 hover:shadow-kitchen-lg hover:-translate-y-1;
   }
 
   .btn-primary {
@@ -104,21 +116,66 @@
     @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-kitchen hover:scale-[1.02] active:scale-[0.98];
   }
 
+  .btn-accent {
+    @apply bg-accent text-accent-foreground px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-kitchen hover:scale-[1.02] active:scale-[0.98];
+  }
+
   .btn-outline {
     @apply border-2 border-primary text-primary px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
   }
 
   .gradient-hero {
-    @apply bg-gradient-to-br from-sage-light via-background to-terracotta-light;
+    @apply bg-gradient-to-br from-lavender-light via-background to-peach-light;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
   }
 
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
+
+  .chip-selected {
+    @apply bg-primary text-primary-foreground shadow-kitchen;
+  }
+
+  .chip-unselected {
+    @apply bg-muted text-muted-foreground hover:bg-muted/80;
+  }
+}
+
+/* Floating background vegetables */
+.floating-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-bg span {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.06;
+  filter: blur(1px);
+  animation: floatVeg 20s ease-in-out infinite;
+}
+
+.floating-bg span:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; animation-duration: 22s; }
+.floating-bg span:nth-child(2) { top: 20%; right: 10%; animation-delay: 3s; animation-duration: 18s; }
+.floating-bg span:nth-child(3) { top: 50%; left: 15%; animation-delay: 5s; animation-duration: 25s; }
+.floating-bg span:nth-child(4) { top: 70%; right: 20%; animation-delay: 2s; animation-duration: 20s; }
+.floating-bg span:nth-child(5) { top: 85%; left: 40%; animation-delay: 7s; animation-duration: 24s; }
+.floating-bg span:nth-child(6) { top: 30%; left: 60%; animation-delay: 4s; animation-duration: 19s; }
+.floating-bg span:nth-child(7) { top: 60%; right: 5%; animation-delay: 6s; animation-duration: 21s; }
+.floating-bg span:nth-child(8) { top: 5%; left: 50%; animation-delay: 1s; animation-duration: 23s; }
+
+@keyframes floatVeg {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-15px) rotate(5deg); }
+  50% { transform: translateY(-25px) rotate(-3deg); }
+  75% { transform: translateY(-10px) rotate(2deg); }
 }
 
 @keyframes float {
