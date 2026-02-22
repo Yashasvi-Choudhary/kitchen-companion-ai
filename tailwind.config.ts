@@ -51,17 +51,21 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sage: {
-          DEFAULT: "hsl(var(--sage))",
-          light: "hsl(var(--sage-light))",
+        lavender: {
+          DEFAULT: "hsl(var(--lavender))",
+          light: "hsl(var(--lavender-light))",
         },
-        terracotta: {
-          DEFAULT: "hsl(var(--terracotta))",
-          light: "hsl(var(--terracotta-light))",
+        peach: {
+          DEFAULT: "hsl(var(--peach))",
+          light: "hsl(var(--peach-light))",
         },
-        cream: {
-          DEFAULT: "hsl(var(--cream))",
-          dark: "hsl(var(--cream-dark))",
+        olive: {
+          DEFAULT: "hsl(var(--olive))",
+          light: "hsl(var(--olive-light))",
+        },
+        beige: {
+          DEFAULT: "hsl(var(--beige))",
+          dark: "hsl(var(--beige-dark))",
         },
         charcoal: "hsl(var(--charcoal))",
         sidebar: {
@@ -83,9 +87,9 @@ export default {
         "3xl": "1.5rem",
       },
       boxShadow: {
-        kitchen: "0 4px 20px -4px hsl(var(--sage) / 0.15)",
-        "kitchen-lg": "0 8px 40px -8px hsl(var(--sage) / 0.2)",
-        "kitchen-terracotta": "0 4px 20px -4px hsl(var(--terracotta) / 0.2)",
+        kitchen: "0 4px 20px -4px hsl(var(--lavender) / 0.2)",
+        "kitchen-lg": "0 8px 40px -8px hsl(var(--lavender) / 0.3)",
+        "kitchen-peach": "0 4px 20px -4px hsl(var(--peach) / 0.25)",
       },
       keyframes: {
         "accordion-down": {

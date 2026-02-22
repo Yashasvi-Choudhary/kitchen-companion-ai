@@ -1,17 +1,30 @@
 import { useState } from "react";
-import { Package, Loader2 } from "lucide-react";
+import { Package } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import SearchableChipSelect from "@/components/SearchableChipSelect";
+import LoadingFacts from "@/components/LoadingFacts";
 import { generateMealPlan } from "@/lib/ai";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const VEGETABLES = [
-  "Potato", "Cauliflower", "Cabbage", "Capsicum", "Beans", "Carrot",
-  "Paneer", "Peas", "Corn", "Brinjal", "Lady Finger", "Methi",
+  { label: "🥔 Aloo", value: "Aloo" }, { label: "🥦 Gobhi", value: "Gobhi" },
+  { label: "🥬 Patta Gobhi", value: "Patta Gobhi" }, { label: "🫑 Shimla Mirch", value: "Shimla Mirch" },
+  { label: "🫘 Sem", value: "Sem" }, { label: "🥕 Gajar", value: "Gajar" },
+  { label: "🧀 Paneer", value: "Paneer" }, { label: "🟢 Matar", value: "Matar" },
+  { label: "🌽 Makka", value: "Makka" }, { label: "🍆 Baingan", value: "Baingan" },
+  { label: "🫛 Bhindi", value: "Bhindi" }, { label: "🌿 Methi", value: "Methi" },
+  { label: "🌿 Palak", value: "Palak" }, { label: "🥒 Lauki", value: "Lauki" },
 ];
+
+const TIFFIN_FOR = ["Student", "Office", "General", "Kids"];
+const TIME_OPTIONS = ["15 min", "30 min", "45 min"];
 
 const TiffinMode = () => {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [vegetables, setVegetables] = useState<string[]>([]);
+  const [tiffinFor, setTiffinFor] = useState("General");
   const [time, setTime] = useState("30 min");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,7 +39,7 @@ const TiffinMode = () => {
     }
     setLoading(true);
     try {
-      const r = await generateMealPlan({ type: "tiffin", vegetables, time });
+      const r = await generateMealPlan({ type: "tiffin", vegetables, time, tiffinFor });
       setResult(r);
     } catch (e: any) {
       toast({ title: e.message, variant: "destructive" });
@@ -35,57 +48,70 @@ const TiffinMode = () => {
     }
   };
 
+  const formatResult = (text: string) => {
+    const sections = text.split(/\n(?=\d+[\.\)]|\*\*)/);
+    return sections.map((section, i) => {
+      const lines = section.trim().split("\n").filter(Boolean);
+      return (
+        <div key={i} className="card-kitchen">
+          {lines.map((line, j) => {
+            const trimmed = line.trim();
+            if (trimmed.startsWith("**") && trimmed.endsWith("**"))
+              return <h4 key={j} className="font-heading font-semibold text-foreground mb-1">{trimmed.replace(/\*\*/g, "")}</h4>;
+            if (trimmed.startsWith("- ") || trimmed.startsWith("• "))
+              return <li key={j} className="text-sm text-muted-foreground ml-4 list-disc">{trimmed.slice(2)}</li>;
+            if (/^\d+[\.\)]/.test(trimmed))
+              return <li key={j} className="text-sm text-muted-foreground ml-4 list-decimal">{trimmed.replace(/^\d+[\.\)]\s*/, "")}</li>;
+            if (trimmed.includes("**")) {
+              const parts = trimmed.split(/\*\*(.*?)\*\*/g);
+              return <p key={j} className="text-sm text-muted-foreground">{parts.map((p, k) => k % 2 === 1 ? <strong key={k} className="text-foreground">{p}</strong> : p)}</p>;
+            }
+            return <p key={j} className="text-sm text-muted-foreground">{trimmed}</p>;
+          })}
+        </div>
+      );
+    });
+  };
+
   return (
-    <PageLayout title="🍱 Tiffin Mode" subtitle="Dry, easy-to-pack, kid-friendly meal ideas">
-      <div className="space-y-6">
+    <PageLayout title={t("tiffin.title")} subtitle={t("tiffin.subtitle")}>
+      <div className="space-y-5">
         <div className="card-kitchen">
-          <h3 className="font-heading font-semibold mb-3 text-foreground">Available Vegetables</h3>
+          <h3 className="font-heading font-semibold mb-3 text-foreground">{t("plan.vegs")}</h3>
+          <SearchableChipSelect items={VEGETABLES} selected={vegetables} onToggle={toggle} searchPlaceholder={t("plan.search")} />
+        </div>
+
+        <div className="card-kitchen">
+          <label className="text-sm font-medium text-foreground mb-2 block">{t("tiffin.for")}</label>
           <div className="flex flex-wrap gap-2">
-            {VEGETABLES.map((v) => (
-              <button
-                key={v}
-                onClick={() => toggle(v)}
-                className={`px-3 py-1.5 rounded-xl text-sm font-medium transition-all ${
-                  vegetables.includes(v)
-                    ? "bg-secondary text-secondary-foreground shadow-kitchen-terracotta"
-                    : "bg-muted text-muted-foreground hover:bg-muted/80"
-                }`}
-              >
-                {v}
+            {TIFFIN_FOR.map((f) => (
+              <button key={f} onClick={() => setTiffinFor(f)}
+                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${tiffinFor === f ? "bg-secondary text-secondary-foreground shadow-kitchen-peach" : "chip-unselected"}`}>
+                {f === "Student" ? "🎓" : f === "Office" ? "💼" : f === "Kids" ? "👶" : "🏠"} {f}
               </button>
             ))}
           </div>
         </div>
 
         <div className="card-kitchen">
-          <label className="text-sm font-medium text-foreground mb-2 block">Time available</label>
-          <div className="flex gap-2">
-            {["15 min", "30 min", "45 min"].map((t) => (
-              <button
-                key={t}
-                onClick={() => setTime(t)}
-                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
-                  time === t
-                    ? "bg-secondary text-secondary-foreground shadow-kitchen-terracotta"
-                    : "bg-muted text-muted-foreground hover:bg-muted/80"
-                }`}
-              >
-                {t}
+          <label className="text-sm font-medium text-foreground mb-2 block">{t("tiffin.time")}</label>
+          <div className="flex flex-wrap gap-2">
+            {TIME_OPTIONS.map((opt) => (
+              <button key={opt} onClick={() => setTime(opt)}
+                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${time === opt ? "bg-secondary text-secondary-foreground shadow-kitchen-peach" : "chip-unselected"}`}>
+                ⏱️ {opt}
               </button>
             ))}
           </div>
         </div>
 
         <button onClick={generate} disabled={loading} className="btn-secondary w-full flex items-center justify-center gap-2">
-          {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Package className="w-5 h-5" />}
-          {loading ? "Generating..." : "Get Tiffin Ideas"}
+          <Package className="w-5 h-5" />
+          {loading ? t("generating") : t("tiffin.generate")}
         </button>
 
-        {result && (
-          <div className="card-kitchen">
-            <pre className="whitespace-pre-wrap text-sm text-foreground font-body leading-relaxed">{result}</pre>
-          </div>
-        )}
+        {loading && <LoadingFacts />}
+        {!loading && result && <div className="space-y-3">{formatResult(result)}</div>}
       </div>
     </PageLayout>
   );

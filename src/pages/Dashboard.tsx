@@ -1,67 +1,34 @@
 import { CalendarDays, Package, Recycle, Brain, Flower2, IndianRupee } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import FeatureCard from "@/components/FeatureCard";
-
-const features = [
-  {
-    icon: CalendarDays,
-    title: "Weekly Planner",
-    description: "Generate a 7-day meal plan from your available ingredients with smart variety and balance.",
-    to: "/weekly-planner",
-    color: "sage" as const,
-  },
-  {
-    icon: Package,
-    title: "Tiffin Mode",
-    description: "Get dry, easy-to-pack, kid-friendly meal ideas perfect for lunchboxes.",
-    to: "/tiffin-mode",
-    color: "terracotta" as const,
-  },
-  {
-    icon: Recycle,
-    title: "Leftover Transformer",
-    description: "Transform last night's leftovers into creative new dishes.",
-    to: "/leftover-transformer",
-    color: "sage" as const,
-  },
-  {
-    icon: Brain,
-    title: "AI Personalization",
-    description: "Set family preferences, health conditions, and dietary needs for smarter plans.",
-    to: "/personalization",
-    color: "terracotta" as const,
-  },
-  {
-    icon: Flower2,
-    title: "Festival & Fasting Mode",
-    description: "Get meal plans suited for Navratri, Ekadashi, Jain food, and more.",
-    to: "/festival-mode",
-    color: "sage" as const,
-  },
-  {
-    icon: IndianRupee,
-    title: "Budget-Friendly Mode",
-    description: "Economical meal ideas using common, affordable ingredients.",
-    to: "/budget-mode",
-    color: "terracotta" as const,
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Dashboard = () => {
+  const { t } = useLanguage();
+
+  const features = [
+    { icon: CalendarDays, emoji: "📅", title: t("feat.weekly"), description: t("feat.weekly.desc"), to: "/weekly-planner", color: "lavender" as const },
+    { icon: Package, emoji: "🍱", title: t("feat.tiffin"), description: t("feat.tiffin.desc"), to: "/tiffin-mode", color: "peach" as const },
+    { icon: Recycle, emoji: "♻️", title: t("feat.leftover"), description: t("feat.leftover.desc"), to: "/leftover-transformer", color: "olive" as const },
+    { icon: Brain, emoji: "🧠", title: t("feat.personalize"), description: t("feat.personalize.desc"), to: "/personalization", color: "lavender" as const },
+    { icon: Flower2, emoji: "🪔", title: t("feat.festival"), description: t("feat.festival.desc"), to: "/festival-mode", color: "peach" as const },
+    { icon: IndianRupee, emoji: "💰", title: t("feat.budget"), description: t("feat.budget.desc"), to: "/budget-mode", color: "olive" as const },
+  ];
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative z-10">
       <Navigation />
       <main className="pt-24 pb-16 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 animate-fade-up">
-            <h1 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-3">
-              Smart Kitchen Features
+            <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3">
+              ✨ {t("dash.title")}
             </h1>
-            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-              Choose a feature to get started with your AI kitchen assistant
+            <p className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto">
+              {t("dash.subtitle")}
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-up-delay-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 animate-fade-up-delay-1">
             {features.map((f) => (
               <FeatureCard key={f.to} {...f} />
             ))}
