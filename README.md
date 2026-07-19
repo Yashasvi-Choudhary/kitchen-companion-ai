@@ -1,5 +1,5 @@
 
-🔗# 🍳 RasoiMind AI – Smart Kitchen Planning Assistant
+🔗 🍳 RasoiMind AI – Smart Kitchen Planning Assistant
 
 > **"Helping families decide what to cook, not how to cook."**
 
