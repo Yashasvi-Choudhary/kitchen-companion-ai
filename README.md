@@ -1,73 +1,255 @@
-# Welcome to your Lovable project
+# 🍳 RasoiMind AI – Smart Kitchen Planning Assistant
 
-## Project info
+> **"Helping families decide what to cook, not how to cook."**
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+RasoiMind AI is an AI-powered kitchen planning assistant designed to solve one of the most common problems in Indian households — **deciding what to cook every day**.
 
-## How can I edit this code?
+Instead of spending time thinking about meals, users can generate personalized meal plans based on the ingredients already available at home, their budget, family preferences, and more.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 📖 About the Project
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+The idea behind RasoiMind AI came from observing a real-life problem at home. Every day, my mother spent a significant amount of time deciding **what to cook**, considering everyone's preferences, available vegetables, pantry items, budget, and special occasions.
 
-Changes made via Lovable will be committed automatically to this repo.
+This project was built as part of the **CodeYogi AI Challenge**, where participants had to identify a real-world problem around them and solve it using AI.
 
-**Use your preferred IDE**
+RasoiMind AI aims to make meal planning smarter, faster, and stress-free.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## ✨ Features
 
-Follow these steps:
+### 📅 Weekly Meal Planner
+- Generate meal plans for 1–7 days.
+- Select the number of meals per day.
+- Choose available vegetables and pantry items.
+- AI creates a structured day-wise meal plan.
+- Includes recipe names, ingredients, and short preparation steps.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 🥪 Tiffin Mode
+- Generate lunchbox-friendly recipes.
+- Options for students, office workers, kids, or general use.
+- Quick and travel-friendly meal suggestions.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### ♻️ Leftover Magic
+- Convert leftover food into new recipes.
+- Choose preferred style (snack, breakfast, dinner, street food, etc.).
+- Get multiple creative recipe ideas with simple preparation steps.
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 🪔 Festival & Fasting Mode
+- Meal suggestions based on Indian festivals and fasting days.
+- Helps users plan meals suitable for special occasions.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### 💰 Budget Planner
+- Choose Low, Medium, or Premium budget.
+- Weekly cost estimation.
+- Daily expense breakdown.
+- Smart money-saving suggestions.
 
-**Edit a file directly in GitHub**
+### 💾 Saved Plans
+- Save generated meal plans.
+- View, edit, or delete saved plans.
+- Stored locally for quick access.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 🌐 Hindi Language Support
+- Switch the interface between English and Hindi.
+- Designed especially for Indian users.
 
-**Use GitHub Codespaces**
+### 📱 Responsive Design
+- Mobile-friendly interface.
+- Works seamlessly on tablets, laptops, and desktops.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 🎯 Purpose
 
-This project is built with:
+The primary goal of RasoiMind AI is to:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Reduce daily meal planning confusion.
+- Save time for families.
+- Utilize available ingredients efficiently.
+- Minimize food wastage through leftover recipes.
+- Help users manage kitchen expenses.
+- Make AI useful for everyday household tasks.
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 🛠️ Tech Stack
 
-## Can I connect a custom domain to my Lovable project?
+- **Frontend:** HTML, CSS, JavaScript
+- **AI Builder:** Lovable.dev
+- **AI Assistance:** ChatGPT
+- **Storage:** Local Storage
+- **Responsive Design:** Mobile First
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🚀 Future Enhancements
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- User Authentication
+- Cloud Storage for Saved Plans
+- Voice Input Support
+- Image-based Ingredient Detection
+- Nutrition Analysis
+- Grocery List Generator
+- Regional Recipe Recommendations
+- Smart Family Preference Learning
+
+---
+
+## 👨‍💻 Developed By
+
+**Yashasvi Choudhary**
+
+Final Year Diploma Student  
+Computer Science & Engineering
+
+---
+
+## 💡 Inspiration
+
+*"Sometimes the biggest innovations don't solve global problems—they solve everyday problems for someone you love."*
+
+This project is inspired by the daily meal-planning challenges faced by my mother and millions of Indian households.
+
+---
+
+## 📸 Screenshots
+
+_Add screenshots of your application here._
+
+---
+
+## 🌐 Live Demo
+
+🔗# 🍳 RasoiMind AI – Smart Kitchen Planning Assistant
+
+> **"Helping families decide what to cook, not how to cook."**
+
+RasoiMind AI is an AI-powered kitchen planning assistant designed to solve one of the most common problems in Indian households — **deciding what to cook every day**.
+
+Instead of spending time thinking about meals, users can generate personalized meal plans based on the ingredients already available at home, their budget, family preferences, and more.
+
+---
+
+## 📖 About the Project
+
+The idea behind RasoiMind AI came from observing a real-life problem at home. Every day, my mother spent a significant amount of time deciding **what to cook**, considering everyone's preferences, available vegetables, pantry items, budget, and special occasions.
+
+This project was built as part of the **CodeYogi AI Challenge**, where participants had to identify a real-world problem around them and solve it using AI.
+
+RasoiMind AI aims to make meal planning smarter, faster, and stress-free.
+
+---
+
+## ✨ Features
+
+### 📅 Weekly Meal Planner
+- Generate meal plans for 1–7 days.
+- Select the number of meals per day.
+- Choose available vegetables and pantry items.
+- AI creates a structured day-wise meal plan.
+- Includes recipe names, ingredients, and short preparation steps.
+
+### 🥪 Tiffin Mode
+- Generate lunchbox-friendly recipes.
+- Options for students, office workers, kids, or general use.
+- Quick and travel-friendly meal suggestions.
+
+### ♻️ Leftover Magic
+- Convert leftover food into new recipes.
+- Choose preferred style (snack, breakfast, dinner, street food, etc.).
+- Get multiple creative recipe ideas with simple preparation steps.
+
+### 🪔 Festival & Fasting Mode
+- Meal suggestions based on Indian festivals and fasting days.
+- Helps users plan meals suitable for special occasions.
+
+### 💰 Budget Planner
+- Choose Low, Medium, or Premium budget.
+- Weekly cost estimation.
+- Daily expense breakdown.
+- Smart money-saving suggestions.
+
+### 💾 Saved Plans
+- Save generated meal plans.
+- View, edit, or delete saved plans.
+- Stored locally for quick access.
+
+### 🌐 Hindi Language Support
+- Switch the interface between English and Hindi.
+- Designed especially for Indian users.
+
+### 📱 Responsive Design
+- Mobile-friendly interface.
+- Works seamlessly on tablets, laptops, and desktops.
+
+---
+
+## 🎯 Purpose
+
+The primary goal of RasoiMind AI is to:
+
+- Reduce daily meal planning confusion.
+- Save time for families.
+- Utilize available ingredients efficiently.
+- Minimize food wastage through leftover recipes.
+- Help users manage kitchen expenses.
+- Make AI useful for everyday household tasks.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** HTML, CSS, JavaScript
+- **AI Builder:** Lovable.dev
+- **AI Assistance:** ChatGPT
+- **Storage:** Local Storage
+- **Responsive Design:** Mobile First
+
+---
+
+## 🚀 Future Enhancements
+
+- User Authentication
+- Cloud Storage for Saved Plans
+- Voice Input Support
+- Image-based Ingredient Detection
+- Nutrition Analysis
+- Grocery List Generator
+- Regional Recipe Recommendations
+- Smart Family Preference Learning
+
+---
+
+## 👨‍💻 Developed By
+
+**Yashasvi Choudhary**
+
+
+---
+
+## 💡 Inspiration
+
+*"Sometimes the biggest innovations don't solve global problems—they solve everyday problems for someone you love."*
+
+This project is inspired by the daily meal-planning challenges faced by my mother and millions of Indian households.
+
+---
+
+## 📸 Screenshots
+<img width="1506" height="692" alt="image" src="https://github.com/user-attachments/assets/ac0d67df-3ded-4e91-9d64-d95fc5b43c30" />
+<img width="1507" height="687" alt="image" src="https://github.com/user-attachments/assets/5f7ef4d6-62a7-4ea1-860b-71cccf281d9e" />
+
+
+
+---
+
+## 🌐 Live Demo
+
+🔗 https://rasoi-mind.lovable.app/
+
+---
+
+## ⭐ If you found this project interesting, consider giving it a star!
